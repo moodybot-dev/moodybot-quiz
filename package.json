@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build-client": "cd client && npm install && npm run build",
-     "build": "vite build",
+    "dev": "vite",
+  "build": "vite build && cpx \"dist/public/**\" server/public",
   "start": "node server/index.js"
   },
   "dependencies": {
