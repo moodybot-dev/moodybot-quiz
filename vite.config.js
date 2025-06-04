@@ -20,6 +20,6 @@ export default defineConfig({
     allowedHosts: ['moodybot-quiz.onrender.com'],
   },
   server: {
-    historyApiFallback: true, // <--- SPA fallback
+    historyApiFallback: true, // SPA fallback
   },
 });
