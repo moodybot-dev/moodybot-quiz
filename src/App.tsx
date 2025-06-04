@@ -16,29 +16,16 @@ function App() {
       <TooltipProvider>
         <main className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-neutral-800 flex flex-col items-center justify-center">
           <Switch>
-            <Route path="/">
-              {() => (
-                <WelcomeScreen onStartQuiz={() => navigate("/quiz")} />
-              )}
-            </Route>
-
-            <Route path="/quiz">
-              {() => <QuizScreen />}
-            </Route>
-
-            <Route path="/results">
-              {() => (
-                <ResultsScreen
-                  personalityType="Spiral Thinker"
-                  totalScore={42}
-                  onRetakeQuiz={() => navigate("/")}
-                />
-              )}
-            </Route>
-
-            <Route>
-              {() => <NotFound />}
-            </Route>
+            <Route path="/" component={() => <WelcomeScreen onStartQuiz={() => navigate("/quiz")} />} />
+            <Route path="/quiz" component={QuizScreen} />
+            <Route path="/results" component={() => (
+              <ResultsScreen
+                personalityType="Spiral Thinker"
+                totalScore={42}
+                onRetakeQuiz={() => navigate("/")}
+              />
+            )} />
+            <Route component={NotFound} />
           </Switch>
 
           <Toaster />
