@@ -1,51 +1,39 @@
 import { useState, useEffect } from "react";
-import { WelcomeScreen } from "@/components/welcome-screen";
 import { QuizScreen } from "@/components/quiz-screen";
 import { ResultsScreen } from "@/components/results-screen";
 import { QUIZ_QUESTIONS, getPersonalityType } from "@/lib/quiz-data";
 import { saveQuizProgress, loadQuizProgress, clearQuizProgress } from "@/lib/quiz-storage";
 import { QuizProgress } from "@shared/schema";
 
-type QuizState = 'welcome' | 'quiz' | 'results';
+type QuizState = 'quiz' | 'results';
 
 export default function Quiz() {
-  const [state, setState] = useState<QuizState>('welcome');
+  const [state, setState] = useState<QuizState>('quiz'); // Directly start quiz
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const [totalScore, setTotalScore] = useState(0);
 
-  // Load saved progress on mount
+  // Load saved progress
   useEffect(() => {
     const savedProgress = loadQuizProgress();
     if (savedProgress) {
       setCurrentQuestionIndex(savedProgress.currentQuestionIndex);
       setAnswers(savedProgress.answers);
       setTotalScore(savedProgress.totalScore);
-      if (savedProgress.currentQuestionIndex > 0) {
-        setState('quiz');
-      }
     }
   }, []);
 
-  // Save progress whenever state changes
+  // Save progress when in quiz mode
   useEffect(() => {
     if (state === 'quiz') {
       const progress: QuizProgress = {
         currentQuestionIndex,
         answers,
-        totalScore
+        totalScore,
       };
       saveQuizProgress(progress);
     }
   }, [state, currentQuestionIndex, answers, totalScore]);
-
-  const handleStartQuiz = () => {
-    setState('quiz');
-    setCurrentQuestionIndex(0);
-    setAnswers([]);
-    setTotalScore(0);
-    clearQuizProgress();
-  };
 
   const handleAnswerSelect = (value: number) => {
     const newAnswers = [...answers];
@@ -73,7 +61,7 @@ export default function Quiz() {
   };
 
   const handleRetakeQuiz = () => {
-    setState('welcome');
+    setState('quiz');
     setCurrentQuestionIndex(0);
     setAnswers([]);
     setTotalScore(0);
@@ -82,32 +70,24 @@ export default function Quiz() {
 
   const personalityType = getPersonalityType(totalScore);
 
-  switch (state) {
-    case 'welcome':
-      return <WelcomeScreen onStartQuiz={handleStartQuiz} />;
-    
-    case 'quiz':
-      return (
-        <QuizScreen
-          currentQuestionIndex={currentQuestionIndex}
-          answers={answers}
-          onAnswerSelect={handleAnswerSelect}
-          onPreviousQuestion={handlePreviousQuestion}
-          onNextQuestion={handleNextQuestion}
-          onViewResults={handleViewResults}
-        />
-      );
-    
-    case 'results':
-      return (
-        <ResultsScreen
-          personalityType={personalityType}
-          totalScore={totalScore}
-          onRetakeQuiz={handleRetakeQuiz}
-        />
-      );
-    
-    default:
-      return <WelcomeScreen onStartQuiz={handleStartQuiz} />;
+  if (state === 'quiz') {
+    return (
+      <QuizScreen
+        currentQuestionIndex={currentQuestionIndex}
+        answers={answers}
+        onAnswerSelect={handleAnswerSelect}
+        onPreviousQuestion={handlePreviousQuestion}
+        onNextQuestion={handleNextQuestion}
+        onViewResults={handleViewResults}
+      />
+    );
   }
+
+  return (
+    <ResultsScreen
+      personalityType={personalityType}
+      totalScore={totalScore}
+      onRetakeQuiz={handleRetakeQuiz}
+    />
+  );
 }
