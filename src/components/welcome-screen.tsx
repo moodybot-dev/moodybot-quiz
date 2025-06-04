@@ -41,7 +41,10 @@ export function WelcomeScreen({ onStartQuiz }: WelcomeScreenProps) {
 
         {/* Start Quiz Button */}
         <Button
-          onClick={onStartQuiz}
+          onClick={() => {
+            console.log("Start Quiz clicked");
+            onStartQuiz();
+          }}
           size="lg"
           className="w-full bg-indigo-600 text-white font-semibold py-4 px-6 rounded-xl hover:bg-indigo-700 transition-all duration-200 transform hover:scale-105 shadow-lg"
         >

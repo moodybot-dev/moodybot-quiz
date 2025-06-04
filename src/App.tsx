@@ -5,8 +5,8 @@ import { Toaster } from "./components/ui/toaster";
 import { TooltipProvider } from "./components/ui/tooltip";
 import { WelcomeScreen } from "./components/welcome-screen";
 import { ResultsScreen } from "./components/results-screen";
-import QuizScreen from "./pages/quiz";
 import NotFound from "./pages/not-found";
+import QuizScreen from "./pages/quiz"; // default export that handles state
 
 function App() {
   const [, navigate] = useLocation();
