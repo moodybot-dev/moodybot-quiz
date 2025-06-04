@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
 
 export default defineConfig({
   base: '/',
@@ -11,14 +11,15 @@ export default defineConfig({
     },
   },
   build: {
-  outDir: 'dist',
-  emptyOutDir: true,
-},
-
-
+    outDir: 'dist',
+    emptyOutDir: true,
+  },
   preview: {
     port: process.env.PORT || 4173,
     host: true,
     allowedHosts: ['moodybot-quiz.onrender.com'],
   },
-})
+  server: {
+    historyApiFallback: true, // <--- SPA fallback
+  },
+});
