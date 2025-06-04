@@ -53,6 +53,7 @@ export interface PersonalityType {
   weapon: string;
   description: string;
   resource: string;
+   resourceLink: string;
   scoreRange: [number, number];
 }
 

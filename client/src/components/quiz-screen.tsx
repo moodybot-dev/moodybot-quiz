@@ -46,7 +46,7 @@ export function QuizScreen({
   };
 
   return (
-    <div className="min-h-screen p-4 bg-gray-50">
+    <div className="min-h-screen p-4 bg-gradient-to-br from-black via-zinc-900 to-neutral-800 p-6">
       <div className="max-w-md mx-auto">
         {/* Progress Bar */}
         <div className="mb-8">

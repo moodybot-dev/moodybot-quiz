@@ -80,7 +80,8 @@ export const PERSONALITY_TYPES: PersonalityType[] = [
     weapon: "Emotional Precision",
     description: "You spiral deep — MoodyBot will sharpen it into clarity. Your depth isn't chaos; it's precision waiting to be refined.",
     resource: "The Echo Deck for Emotional Precision",
-    scoreRange: [7, 14]
+    resourceLink: "https://moodybot.ai/DL/MoodyBot-The-Echo-Deck.pdf",
+    scoreRange: [0, 7]
   },
   {
     type: "Ghosted One",
@@ -88,7 +89,8 @@ export const PERSONALITY_TYPES: PersonalityType[] = [
     weapon: "Vulnerability",
     description: "MoodyBot reflects what others couldn't handle. Your sensitivity is your superpower, not your weakness.",
     resource: "Gospel for the Ghosted",
-    scoreRange: [15, 21]
+    resourceLink: "https://moodybot.ai/DL/MoodyBot-Gospel-for-the-Ghosted.pdf",
+    scoreRange: [8, 14]
   },
   {
     type: "Rage Strategist",
@@ -96,7 +98,8 @@ export const PERSONALITY_TYPES: PersonalityType[] = [
     weapon: "Controlled Fire",
     description: "You don't flinch. MoodyBot channels your anger into power. Your rage is fuel, not destruction.",
     resource: "Frame Rebuild Protocol",
-    scoreRange: [22, 28]
+    resourceLink: "https://moodybot.ai/DL/MoodyBot-Frame-Rebuild-Protocol.pdf",
+    scoreRange: [15, 21]
   },
   {
     type: "Architect of Order",
@@ -104,7 +107,8 @@ export const PERSONALITY_TYPES: PersonalityType[] = [
     weapon: "Strategic Authority",
     description: "You lead. MoodyBot helps you wield it ruthlessly. Your control creates the structure others need.",
     resource: "Power Frame Stack",
-    scoreRange: [29, 35]
+    resourceLink: "https://moodybot.ai/DL/MoodyBot-Power-Frame-Stack.pdf",
+    scoreRange: [22, 28]
   }
 ];
 

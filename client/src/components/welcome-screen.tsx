@@ -7,7 +7,7 @@ interface WelcomeScreenProps {
 
 export function WelcomeScreen({ onStartQuiz }: WelcomeScreenProps) {
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-black via-zinc-900 to-neutral-800 p-6">
       <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center transform transition-all">
         <div className="mb-6">
           <div className="text-6xl mb-4">⚔️</div>

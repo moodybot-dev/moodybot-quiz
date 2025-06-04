@@ -30,7 +30,7 @@ export function ResultsScreen({ personalityType, totalScore, onRetakeQuiz }: Res
   };
 
   return (
-    <div className="min-h-screen p-4 bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-neutral-800 p-6">
       <div className="max-w-md mx-auto">
         <Card className="mb-6 shadow-xl overflow-hidden">
           {/* Result Header */}
@@ -47,47 +47,53 @@ export function ResultsScreen({ personalityType, totalScore, onRetakeQuiz }: Res
             </p>
 
             <div className="bg-gray-50 rounded-xl p-4 mb-6">
-              <h3 className="font-semibold text-gray-900 mb-2">Recommended Resource:</h3>
-              <a 
-                href="#" 
-                className="text-indigo-600 font-medium hover:underline"
-                onClick={(e) => e.preventDefault()}
-              >
-                {personalityType.resource}
-              </a>
-            </div>
+  <h3 className="font-semibold text-gray-900 mb-2">Recommended Resource:</h3>
+  <a 
+    href={personalityType.resourceLink} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="text-indigo-600 font-medium hover:underline"
+  >
+    {personalityType.resource}
+  </a>
+</div>
 
             {/* Additional Resources */}
             <div className="space-y-3 mb-6">
-              <a 
-                href="#" 
-                className="block text-indigo-600 hover:text-indigo-700 font-medium"
-                onClick={(e) => e.preventDefault()}
-              >
-                → Try the MoodyBot Telegram Trial Bot — 3 Free Replies
-              </a>
-              <a 
-                href="#" 
-                className="block text-indigo-600 hover:text-indigo-700 font-medium"
-                onClick={(e) => e.preventDefault()}
-              >
-                → Follow @MoodyBotAI on X
-              </a>
-              <a 
-                href="#" 
-                className="block text-indigo-600 hover:text-indigo-700 font-medium"
-                onClick={(e) => e.preventDefault()}
-              >
-                → Subscribe on Substack
-              </a>
-              <a 
-                href="#" 
-                className="block text-indigo-600 hover:text-indigo-700 font-medium"
-                onClick={(e) => e.preventDefault()}
-              >
-                → MoodyBot.ai
-              </a>
-            </div>
+  <a 
+    href="https://t.me/MoodyBotTrialBot" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="block text-indigo-600 hover:text-indigo-700 font-medium"
+  >
+    → Try the MoodyBot Telegram Trial Bot — 3 Free Replies
+  </a>
+  <a 
+    href="https://x.com/MoodyBotAI" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="block text-indigo-600 hover:text-indigo-700 font-medium"
+  >
+    → Follow @MoodyBotAI on X
+  </a>
+  <a 
+    href="https://moodybot.substack.com" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="block text-indigo-600 hover:text-indigo-700 font-medium"
+  >
+    → Subscribe on Substack
+  </a>
+  <a 
+    href="https://moodybot.ai" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="block text-indigo-600 hover:text-indigo-700 font-medium"
+  >
+    → MoodyBot.ai
+  </a>
+</div>
+
 
             {/* Social Share */}
             <div className="border-t pt-6">

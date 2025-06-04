@@ -1,10 +1,27 @@
 import express, { type Request, Response, NextFunction } from "express";
+import { createServer } from "http";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
+const httpServer = createServer(app);
+
+const isProduction = process.env.NODE_ENV === "production";
+
+if (isProduction) {
+  serveStatic(app);
+} else {
+  setupVite(app, httpServer);
+}
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+registerRoutes(app);
+
+const PORT = process.env.PORT || 5000;
+httpServer.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
 
 app.use((req, res, next) => {
   const start = Date.now();
@@ -60,11 +77,9 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = 5000;
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
-  });
+server.listen(port, 'localhost', () => {
+  log(`serving on http://localhost:${port}`);
+});
+
+
 })();
