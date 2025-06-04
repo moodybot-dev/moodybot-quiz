@@ -11,9 +11,10 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist/public',
-    emptyOutDir: true,
-  },
+  outDir: 'dist',
+  emptyOutDir: true,
+},
+
   preview: {
     port: process.env.PORT || 4173,
     host: true,

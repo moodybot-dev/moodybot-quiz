@@ -1,4 +1,3 @@
-// server/index.js
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -9,14 +8,14 @@ const port = process.env.PORT || 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve static files from the dist/public folder
-app.use(express.static(path.join(__dirname, '../dist/public')));
+// Serve static files from dist (flattened)
+app.use(express.static(path.join(__dirname, '../dist')));
 
-// Fallback for SPA routing
+// Fallback to index.html for SPA routes
 app.get('*', (_, res) => {
-  res.sendFile(path.join(__dirname, '../dist/public/index.html'));
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });
