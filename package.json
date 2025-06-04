@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "build-client": "cd client && npm install && npm run build",
-    "build": "vite build && cpx \"dist/public/**\" server/public",
-    "start": "vite preview --host"
+     "build": "vite build",
+  "start": "node server/index.js"
   },
   "dependencies": {
     "@capacitor/cli": "^7.2.0",

@@ -1,7 +1,20 @@
 services:
   - type: web
-    name: MoodyBot Quiz
+    name: moodybot-quiz
     env: node
     buildCommand: npm install --include=dev && npm run build
-    startCommand: node server/index.js
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.1
+    plan: free
+    region: oregon
     autoDeploy: true
+    rootDir: .
+    buildFilter:
+      paths:
+        - src/**
+        - package.json
+        - vite.config.js
+    ports:
+      - 4173
