@@ -1,9 +1,7 @@
 services:
   - type: web
-    name: moodybot-quiz
+    name: MoodyBot Quiz
     env: node
     buildCommand: npm install && npm run build
-    startCommand: npm start
-    envVars:
-      - key: NODE_ENV
-        value: production
+    startCommand: node server/index.js
+    autoDeploy: true
