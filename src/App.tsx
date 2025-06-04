@@ -13,15 +13,17 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <main className="flex min-h-screen flex-col items-center justify-center">
-          <h1 style={{ color: 'red' }}>✅ App Loaded</h1>
-
           <Switch>
-           <Route path="/" >
-  {() => <WelcomeScreen onStartQuiz={() => console.log("Quiz start")} />}
+            <Route path="/">
+  {() => (
+    <WelcomeScreen onStartQuiz={() => console.log("Start clicked")} />
+  )}
 </Route>
-<Route path="/quiz" >
+
+<Route path="/quiz">
   {() => <QuizScreen />}
 </Route>
+
 <Route path="/results">
   {() => (
     <ResultsScreen
@@ -35,6 +37,7 @@ function App() {
 <Route>
   {() => <NotFound />}
 </Route>
+
           </Switch>
 
           <Toaster />
