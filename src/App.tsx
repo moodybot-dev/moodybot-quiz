@@ -14,7 +14,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <main className="flex min-h-screen flex-col items-center justify-center">
+        <main className="min-h-screen bg-gradient-to-b from-purple-600 via-pink-500 to-white flex flex-col items-center justify-center">
           <Switch>
             <Route path="/">
               {() => (
