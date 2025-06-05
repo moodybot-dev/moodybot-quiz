@@ -15,7 +15,7 @@ const quizzes = [
     title: "What Type of MCU Villain Are You?",
     subtitle:
       "You’re not evil. You’re inevitable. A symptom of their failures, sharpened by pain. You didn’t choose darkness. It recognized you. Now let’s name the monster they made.",
-    href: "/quiz/mcu-villain",
+    href: "/quiz/mcu-villain/start",
   },
 ];
 
