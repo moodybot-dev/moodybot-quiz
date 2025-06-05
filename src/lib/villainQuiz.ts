@@ -82,7 +82,7 @@ export const villainQuiz = {
       description: "You want justice, not peace. You burn down systems to rebuild your own.",
       resource: {
         label: "The Vengeance Stack (PDF)",
-        link: "https://moodybot.ai/pdf/vengeance-stack.pdf"
+        link: "https://moodybot.ai/DL/MoodyBot-vengeance-stack.pdf"
       }
     },
     "god-complex": {
@@ -92,7 +92,7 @@ export const villainQuiz = {
       description: "You see the big picture, no matter how many lives it costs.",
       resource: {
         label: "Utilitarian Control Matrix (PDF)",
-        link: "https://moodybot.ai/pdf/utilitarian-control.pdf"
+        link: "https://moodybot.ai/DL/MoodyBot-utilitarian-control.pdf"
       }
     },
     "narcissist": {
@@ -102,7 +102,7 @@ export const villainQuiz = {
       description: "You crave attention as much as power — and you’re dangerously good at both.",
       resource: {
         label: "Validation Loops & Persona Traps (PDF)",
-        link: "https://moodybot.ai/pdf/validation-loops.pdf"
+        link: "https://moodybot.ai/DL/MoodyBot-validation-loops.pdf"
       }
     },
     "shadow-mirror": {
@@ -112,7 +112,7 @@ export const villainQuiz = {
       description: "You broke reality because grief made the world unbearable.",
       resource: {
         label: "Trauma Transmutation Framework (PDF)",
-        link: "https://moodybot.ai/pdf/trauma-transmutation.pdf"
+        link: "https://moodybot.ai/DL/MoodyBot-trauma-transmutation.pdf"
       }
     },
     "chaos-architect": {
@@ -122,7 +122,7 @@ export const villainQuiz = {
       description: "You believe humanity is the problem. You’re just speeding up the collapse.",
       resource: {
         label: "The Post-Human Prophecy (PDF)",
-        link: "https://moodybot.ai/pdf/post-human-prophecy.pdf"
+        link: "https://moodybot.ai/DL/MoodyBot-post-human-prophecy.pdf"
       }
     }
   },
