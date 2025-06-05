@@ -1,0 +1,6 @@
+services:
+  - type: static
+    name: quizzes-moodybot
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: dist
