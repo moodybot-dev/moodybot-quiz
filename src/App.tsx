@@ -1,40 +1,49 @@
-import { Route, Switch, useLocation } from "wouter";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "./lib/queryClient";
-import { Toaster } from "./components/ui/toaster";
-import { TooltipProvider } from "./components/ui/tooltip";
-import { WelcomeScreen } from "./components/welcome-screen";
-import { ResultsScreen } from "./components/results-screen";
-import NotFound from "./pages/not-found";
-import QuizScreen from "./pages/quiz"; // default export that handles state
+// src/App.tsx
+ import { Route, Switch, useLocation } from "wouter";
+ import { QueryClientProvider } from "@tanstack/react-query";
+ import { queryClient } from "./lib/queryClient";
+ import { Toaster } from "./components/ui/toaster";
+ import { TooltipProvider } from "./components/ui/tooltip";
+ import Header from "./components/Header";
 
-function App() {
-  const [, navigate] = useLocation();
+ import Home from "./pages/index";
+ import NotFound from "./pages/not-found";
+ import McuVillainWelcome from "./pages/quiz/mcu-villain/index";
+import McuVillainQuizPage from "./pages/quiz/mcu-villain"; 
+import EmotionalWeaponWelcome from "@/pages/emotional-weapon/index";
+    import EmotionalWeaponQuizPage from "./pages/emotional-weapon/start";
 
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <main className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-neutral-800 flex flex-col items-center justify-center">
-          <Switch>
-            <Route path="/" component={() => (
-              <WelcomeScreen onStartQuiz={() => navigate("/quiz")} />
-            )} />
-            <Route path="/quiz" component={QuizScreen} />
-            <Route path="/results" component={() => (
-              <ResultsScreen
-                personalityType="Spiral Thinker"
-                totalScore={42}
-                onRetakeQuiz={() => navigate("/")}
-              />
-            )} />
-            <Route component={NotFound} />
-          </Switch>
+ function App() {
+   const [, navigate] = useLocation();
 
-          <Toaster />
-        </main>
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
-}
+   return (
+     <QueryClientProvider client={queryClient}>
+       <TooltipProvider>
+         <main className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-neutral-800 flex flex-col">
+           <Header />
 
-export default App;
+           <div className="flex-1 flex flex-col items-center justify-center">
+             <Switch>
+               <Route path="/" component={Home} />
+
++             <Route path="/emotional-weapon" component={EmotionalWeaponWelcome} />
+              <Route path="/emotional-weapon/index" component={EmotionalWeaponWelcome} />
++              <Route path="/emotional-weapon/start" component={EmotionalWeaponQuizPage} />
+
+               {/* MCU Villain */}
+               <Route path="/quiz/mcu-villain" component={McuVillainWelcome} />
+                <Route path="/quiz/mcu-villain/start" component={McuVillainQuizPage} />
+
+               {/* fallback etc. */}
+               <Route component={NotFound} />
+             </Switch>
+           </div>
+
+           <Toaster />
+         </main>
+       </TooltipProvider>
+     </QueryClientProvider>
+   );
+ }
+
+ export default App;

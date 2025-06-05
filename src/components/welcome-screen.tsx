@@ -7,52 +7,49 @@ interface WelcomeScreenProps {
 export function WelcomeScreen({ onStartQuiz }: WelcomeScreenProps) {
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-black via-zinc-900 to-neutral-800">
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center animate-fade-in">
+      <div className="bg-zinc-900 text-white rounded-2xl border border-zinc-700 shadow-xl p-8 max-w-md w-full text-center animate-fade-in">
         
         {/* Icon */}
         <div className="text-6xl mb-4">⚔️</div>
 
         {/* Title */}
-        <h1 className="text-3xl font-bold text-gray-900 mb-3">
+        <h1 className="text-3xl font-bold mb-3">
           What's Your Emotional Weapon?
         </h1>
 
         {/* Description */}
-        <p className="text-gray-600 leading-relaxed mb-6">
+        <p className="text-zinc-300 leading-relaxed mb-6">
           Discover the hidden power that makes you uniquely effective in life's challenges.
           This personality assessment reveals your authentic emotional strengths.
         </p>
 
-        {/* Stats Bar */}
-        <div className="mb-8 p-4 bg-gray-50 rounded-xl text-sm text-gray-700 flex justify-between">
+        {/* Stats */}
+        <div className="mb-8 p-4 bg-zinc-800 rounded-xl text-sm text-zinc-300 flex justify-between">
           <span className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-indigo-600 rounded-full"></span>
+            <span className="w-2 h-2 bg-indigo-400 rounded-full"></span>
             7 Questions
           </span>
           <span className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-pink-500 rounded-full"></span>
+            <span className="w-2 h-2 bg-pink-400 rounded-full"></span>
             2 Minutes
           </span>
           <span className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
+            <span className="w-2 h-2 bg-emerald-400 rounded-full"></span>
             Instant Results
           </span>
         </div>
 
-        {/* Start Quiz Button */}
+        {/* CTA */}
         <Button
-          onClick={() => {
-            console.log("Start Quiz clicked");
-            onStartQuiz();
-          }}
+          onClick={onStartQuiz}
           size="lg"
-          className="w-full bg-indigo-600 text-white font-semibold py-4 px-6 rounded-xl hover:bg-indigo-700 transition-all duration-200 transform hover:scale-105 shadow-lg"
+          className="w-full bg-indigo-600 text-white font-semibold py-4 px-6 rounded-xl hover:bg-indigo-700 transition-transform duration-200 hover:scale-105 shadow-lg"
         >
           Start Quiz
         </Button>
 
-        {/* Footer Note */}
-        <p className="text-xs text-gray-500 mt-4">
+        {/* Footer */}
+        <p className="text-xs text-zinc-400 mt-4">
           Your results are private and not stored.
         </p>
       </div>
